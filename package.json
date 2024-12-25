@@ -7,6 +7,8 @@
   "author": "SAM CLI",
   "license": "MIT",
   "scripts": {
+    "build": "npx tsc",
+    "dev": "nodemon local-api-gateway.ts",
     "unit": "jest",
     "lint": "eslint '*.ts' --quiet --fix",
     "compile": "tsc",
