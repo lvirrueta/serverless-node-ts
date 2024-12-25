@@ -1,4 +1,5 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
+import { Routes } from './shared/app/router/routes';
 
 /**
  *
@@ -11,20 +12,20 @@ import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
  */
 
 export const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-    try {
-        return {
-            statusCode: 200,
-            body: JSON.stringify({
-                message: 'hello everyone',
-            }),
-        };
-    } catch (err) {
-        console.log(err);
-        return {
-            statusCode: 500,
-            body: JSON.stringify({
-                message: 'some error happened',
-            }),
-        };
-    }
+  const routes = new Routes();
+  try {
+    return await routes.getRouter().handle(event);
+  } catch (err) {
+    return throwUnknownError(err);
+  }
+};
+
+const throwUnknownError = (err: unknown) => {
+  console.log(err);
+  return {
+    statusCode: 500,
+    body: JSON.stringify({
+      message: 'some error happened',
+    }),
+  };
 };
