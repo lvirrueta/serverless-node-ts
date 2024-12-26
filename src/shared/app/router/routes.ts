@@ -11,8 +11,9 @@ export class Routes {
     this.router = new Router();
 
     // Registrar rutas
-    this.router.register('GET', '/detail-planet', new PlanetController().detailPlanet);
-    this.router.register('POST', '/create-planet', new PlanetController().createPlanet);
+    const planetController = new PlanetController();
+    this.router.register('GET', '/detail-planet', planetController.detailPlanet.bind(planetController));
+    this.router.register('POST', '/create-planet', planetController.createPlanet.bind(planetController));
   }
 
   getRouter(): Router {
