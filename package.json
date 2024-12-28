@@ -7,8 +7,9 @@
   "author": "SAM CLI",
   "license": "MIT",
   "scripts": {
-    "build": "npx tsc",
-    "migrations": "npx ts-node dynamodb/dynamodb.ts",
+    "build": "cp .env.prod .env && sam build",
+    "migrations:dev": "cp .env.dev .env && npx ts-node migrations/dynamodb-migrations.ts",
+    "migrations:prod": "cp .env.prod .env && npx ts-node migrations/dynamodb-migrations.ts",
     "dev": "nodemon local-api-gateway.ts",
     "unit": "jest",
     "lint": "eslint '*.ts' --quiet --fix",
@@ -17,6 +18,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.716.0",
+    "dotenv": "^16.4.7",
     "esbuild": "^0.14.14"
   },
   "devDependencies": {
