@@ -1,15 +1,17 @@
-import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
+import 'dotenv/config';
 import { Routes } from './shared/app/router/routes';
+import { Logger } from './shared/app/utilities/logger';
+import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 
-/**
- *
- * Event doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-input-format
- * @param {Object} event - API Gateway Lambda Proxy Input Format
- *
- * Return doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html
- * @returns {Object} object - API Gateway Lambda Proxy Output Format
- *
- */
+console.clear();
+Logger.log(`log`);
+Logger.info(`info`);
+Logger.warn(`warn`);
+Logger.error(`error`);
+Logger.debug(`debug`);
+Logger.verbose(`verbose`);
+console.log('----------------------------------');
+Logger.warn(`Entorno de desarrollo: ${process.env.ENV_DEV}`, 'app');
 
 export const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
   const routes = new Routes();
