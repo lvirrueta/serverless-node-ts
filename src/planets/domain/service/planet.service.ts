@@ -1,4 +1,4 @@
-import { PlanetRepository } from '../infrastructure/planet.repository';
+import { PlanetRepository } from '../../infrastructure/repository/planet.repository';
 
 export class PlanetService {
   private planetRepository: PlanetRepository;

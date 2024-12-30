@@ -1,5 +1,5 @@
-import { ApiResponse } from '../../shared/app/models/server-response';
-import { PlanetService } from '../domain/planet.service';
+import { ApiResponse } from '../../../shared/app/models/server-response';
+import { PlanetService } from '../../domain/service/planet.service';
 
 export class PlanetController {
   private planetService: PlanetService;

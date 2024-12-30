@@ -1,5 +1,5 @@
 import { Router } from './router';
-import { PlanetController } from '../../../planets/app/planet.controller';
+import { PlanetController } from '../../../planets/app/controller/planet.controller';
 
 /**
  * Clase para definir las rutas
