@@ -10,7 +10,7 @@ export class Router {
     this.routes = new Map();
   }
 
-  public register(method: string, path: string, handler: (event?: APIGatewayProxyEvent) => Promise<any>): void {
+  public register(method: string, path: string, handler: (event: APIGatewayProxyEvent) => Promise<any>): void {
     const key = `${method.toUpperCase()} ${path}`;
     this.routes.set(key, handler);
   }

@@ -9,7 +9,7 @@ export class PlanetController {
     this.planetService = new PlanetService();
   }
 
-  public async createPlanet(event?: APIGatewayProxyEvent) {
+  public async createPlanet(event: APIGatewayProxyEvent) {
     const body = event?.body ? JSON.parse(event.body) : {};
     const resp = await this.planetService.createPlanet(body);
     return new ApiResponse(resp);
