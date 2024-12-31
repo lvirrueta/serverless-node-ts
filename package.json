@@ -20,7 +20,8 @@
     "@aws-sdk/client-dynamodb": "^3.716.0",
     "@aws-sdk/lib-dynamodb": "^3.716.0",
     "dotenv": "^16.4.7",
-    "esbuild": "^0.14.14"
+    "esbuild": "^0.14.14",
+    "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {
     "@jest/globals": "^29.2.0",
