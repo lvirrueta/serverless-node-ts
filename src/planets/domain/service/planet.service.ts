@@ -1,4 +1,5 @@
 import { PlanetRepository } from '../../infrastructure/repository/planet.repository';
+import { IPlanet } from '../interface/planet.interface';
 
 export class PlanetService {
   private planetRepository: PlanetRepository;
@@ -7,8 +8,8 @@ export class PlanetService {
     this.planetRepository = new PlanetRepository();
   }
 
-  public async createPlanet() {
-    return this.planetRepository.createPlanet();
+  public async createPlanet(dto: IPlanet) {
+    return this.planetRepository.createPlanet(dto);
   }
 
   public async detailPlanet() {
